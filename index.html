@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разметка текста песни для Suno AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <h1>🎵 Разметка текста песни для Suno AI</h1>
+                <span class="version">Расширенная версия</span>
+            </div>
+            <div class="header-actions">
+                <button id="templateBtn" class="btn btn-secondary">📋 Шаблоны</button>
+                <button id="helpBtn" class="btn btn-secondary">❓ Справка</button>
+                <button id="statisticsBtn" class="btn btn-secondary">📈 Статистика</button>
+                <button id="exportBtn" class="btn btn-primary">📤 Экспорт</button>
+                <button id="clearBtn" class="btn btn-outline">🗑️ Очистить</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="editor-section">
+                <div class="editor-header">
+                    <h2>Текст песни</h2>
+                    <div class="editor-tools">
+                        <button id="undoBtn" class="tool-btn" title="Отменить">↶</button>
+                        <button id="redoBtn" class="tool-btn" title="Повторить">↷</button>
+                        <span class="tag-count">Тегов: <span id="tagCounter">0</span></span>
+                    </div>
+                </div>
+                
+                <div id="editor" class="song-editor" contenteditable="true" 
+                     placeholder="Введите текст песни здесь...
+
+Пример:
+[Intro] [BPM: 120] [Key: C]
+
+[Verse 1]
+Текст куплета...
+
+[Chorus]
+Текст припева..."></div>
+            </div>
+
+            <div class="tags-panel">
+                <div class="panel-header">
+                    <h2>Теги Suno AI</h2>
+                    <div class="search-container">
+                        <input type="text" id="tagSearch" placeholder="Поиск тегов..." class="search-input">
+                        <select id="categoryFilter" class="category-select">
+                            <option value="">Все категории</option>
+                            <option value="structure">Структурные</option>
+                            <option value="vocal">Вокальные</option>
+                            <option value="style">Стиль</option>
+                            <option value="instrument">Инструменты</option>
+                            <option value="production">Продакшн</option>
+                            <option value="effects">Эффекты</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tags-container" id="tagsContainer">
+                    <!-- Теги будут загружены через JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальные окна -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Шаблоны</h3>
+                <button class="modal-close" id="templateClose">&times;</button>
+            </div>
+            <div class="modal-body" id="templatesContainer"></div>
+        </div>
+    </div>
+
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Справка</h3>
+                <button class="modal-close" id="helpClose">&times;</button>
+            </div>
+            <div class="modal-body" id="helpContent"></div>
+        </div>
+    </div>
+
+    <div id="statisticsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Статистика</h3>
+                <button class="modal-close" id="statisticsClose">&times;</button>
+            </div>
+            <div class="modal-body" id="statisticsContent"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
